@@ -77,11 +77,11 @@ In part I, several observations were made regarding data quality. The following 
   * Example : glucose = 0 for non-disease state will be populated with avg.glucsose from the non-disease state.
 
 >Before Remediating ZEROS  
-  ![Alt text](images/1697609720016.png)
 
+![Alt text](images/1697609720016.png)
 > After Remediation  
-> ![Alt text](images/1697609779480.png)
 
+![Alt text](images/1697609779480.png)
 ### Outliers
 
 * Primary outliers in this data set were the zero-value entries. 
