@@ -37,7 +37,8 @@ For this task, you are required to conduct an exploratory data analysis on the d
 * 3 calculated fields: BMI, Pedigree Function and Age.
 * Age will likey need to be 'binned'  
   
->![Alt text](images/classimbalance.png)
+
+![Alt text](images/classimbalance.png)
 > 35% of people in data set had Diabetes
 
 ### Step 2 - Visualization 
