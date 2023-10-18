@@ -26,8 +26,8 @@ For this task, you are required to conduct an exploratory data analysis on the d
 1. What type of fields?
 2. How large is dataset?
 3. How many categorical values (that will need encode or 1-hot)
-4. Prevalence on Nulls?  
-   
+4. Prevalence on Nulls?
+
 **Observations 1:**
 
 * There are 9 fields in total (8 features, 1 target)
@@ -35,28 +35,30 @@ For this task, you are required to conduct an exploratory data analysis on the d
 * Do not appear to be any Nulls
 * No categorical fields
 * 3 calculated fields: BMI, Pedigree Function and Age.
-* Age will likey need to be 'binned'  
-  
+* Age will likey need to be 'binned'
 
 ![Alt text](images/classimbalance.png)
+
 > 35% of people in data set had Diabetes
 
-### Step 2 - Visualization 
+### Step 2 - Visualization
+
 * Create visualization of the 8 features
 * Qualitatively identify outliers and or grouping
 
-**Tools**:  
+**Tools**:
+
 1) Histogram
    ![Alt text](images/histograms.png)
-2) Pairplot [ref: Medium](https://webcache.googleusercontent.com/search?q=cache:https://medium.com/analytics-vidhya/pairplot-visualization-16325cd725e6)  
-   ![Alt text](images/pairplots.png)  
-3) Boxplots  
-   ![Alt text](<images/box plot.png>)
-4) Violin plot  
+2) Pairplot [ref: Medium](https://webcache.googleusercontent.com/search?q=cache:https://medium.com/analytics-vidhya/pairplot-visualization-16325cd725e6)![Alt text](images/pairplots.png)
+3) Boxplots![Alt text](images/box plot.png)
+4) Violin plot
    ![Alt text](images/violin.png)
 
 ## Preprocessing and Feature Engineering
-In part I, several observations were made regarding data quality. The following tasks will be considered and taken as required.  
+
+In part I, several observations were made regarding data quality. The following tasks will be considered and taken as required.
+
 - Handling missing values
 - Handling outliers
 - Scaling and normalization
@@ -67,51 +69,58 @@ In part I, several observations were made regarding data quality. The following 
 
 * Confirm the counts for zero values
 * Identify and Exclude nonrelevant features from further pre-processing
-* Features included in additional pre-processing are: 
+* Features included in additional pre-processing are:
   * insuling
   * glucose
   * blood pressure
   * skin thickness
   * BMI
   * DPF
-* Approach to fill 0 will be to insert the mean of from the disease state. 
+* Approach to fill 0 will be to insert the mean of from the disease state.
   * Example : glucose = 0 for non-disease state will be populated with avg.glucsose from the non-disease state.
 
->Before Remediating ZEROS  
+> Before Remediating ZEROS
 
 ![Alt text](images/1697609720016.png)
-> After Remediation  
+
+> After Remediation
 
 ![Alt text](images/1697609779480.png)
+
 ### Outliers
 
-* Primary outliers in this data set were the zero-value entries. 
-* These have been addressed in the preceeding section. 
-* The remaining outliers did not appear material in size and will remain. 
+* Primary outliers in this data set were the zero-value entries.
+* These have been addressed in the preceeding section.
+* The remaining outliers did not appear material in size and will remain.
 * The outliers will be reviewed depending on the model, and tuning paramters
 
-### Scaling and Normalization  
+### Scaling and Normalization
+
 ![Alt text](images/scaling.png)
 
 ### Correlation Heatmap
+
 ![Alt text](images/heatmap.png)
 
 ## Machine Learning
+
 - Split the data between training and test.
 - Train the models: Train the selected models on the training set.
 - Model evaluation: Evaluate the trained models on the testing set using appropriate evaluation metrics
-- Model comparison: Compare the performance of the selected models and choose the best-performing model based on the evaluation metrics. 
+- Model comparison: Compare the performance of the selected models and choose the best-performing model based on the evaluation metrics.
 - Additional analysis, such as model tuning and cross-validation, to improve the model's performance.
 
 ## Model Summary and Library import
 
-Models used in the unsupervised classification include: 
+Models used in the unsupervised classification include:
+
 * Logistic Regression
 * K-Nearest Neighbors
 * Decision Tree
 * Randon Forest
 
-The metrics used to evaluate the effectiveness of each model include: 
+The metrics used to evaluate the effectiveness of each model include:
+
 * Accuracy Score
 * Sensitivity
 * Precision
@@ -121,18 +130,25 @@ The metrics used to evaluate the effectiveness of each model include:
 
 ### Data Frame for the Evaluation measures
 
-* We will be creating a number of metrics through the various models. 
-* Create a dataframe (ie table) to maintain all these measures. 
-* Update the table with the measures automatically when evaluation is completed.  
-   
-![Alt text](images/Slide1.PNG)  
+* We will be creating a number of metrics through the various models.
+* Create a dataframe (ie table) to maintain all these measures.
+* Update the table with the measures automatically when evaluation is completed.
+
+![Alt text](images/Slide1.PNG)
 ![Alt text](images/summarystats.png)
-  
+
 ## Conclusion
-Four machine learning models were developed following exploratory data analysis (EDA). The specificity and sensitivity of these models is provided below. The following conclusions can be made about the findings: 
+
+Four machine learning models were developed following exploratory data analysis (EDA). The specificity and sensitivity of these models is provided below. The following conclusions can be made about the findings:
 
 1. None of the models in their current configuration offer satisfactory results for sensitivity (too many missed positives) or specificity (too many false positivies) to be considered a 'diagnostic' predictor.
 2. Additional optimization efforts, such as Grid search, need to be undertaken to optimize the models to increase accuracy.
 3. KNN appears to be the best model where the implications of False Positive are of great concern. (Example might be misdiagnosis of cancer)
-4. Decision tree appear to be the most appropriate model in circumstances where the risk of a False Negative (ie missed Postive) is the greatest. Such an example might be in the case of a high-risk communicable disease, such as Covid. 
-5. Given that Type 2 Diabetes is a preventable condition, with non-invasive interventions all of which improve overall health (ie diet and exercise), these models could be used to help inform clinicians and in turn patients of their risk factors and liklihood to acquire the disease. 
+4. Decision tree appear to be the most appropriate model in circumstances where the risk of a False Negative (ie missed Postive) is the greatest. Such an example might be in the case of a high-risk communicable disease, such as Covid.
+5. Given that Type 2 Diabetes is a preventable condition, with non-invasive interventions all of which improve overall health (ie diet and exercise), these models could be used to help inform clinicians and in turn patients of their risk factors and liklihood to acquire the disease.
+
+References:
+
+* [Diabetes project - Dio Azril](https://www.kaggle.com/code/dioazril/diabetes-prediction)
+* [Prediction with Pycaret](https://www.analyticsvidhya.com/blog/2021/07/diabetes-prediction-with-pycaret/)
+* [Building a Diabetes Predictor - Medium](https://webcache.googleusercontent.com/search?q=cache:https://medium.com/analytics-vidhya/building-a-diabetes-predictor-4702b99bc7e4)
